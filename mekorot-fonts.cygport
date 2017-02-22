@@ -1,0 +1,23 @@
+inherit font
+
+NAME="mekorot-fonts"
+VERSION=0.03
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Hebrew fonts based on Talmud Bavli text"
+DESCRIPTION="A pair of fonts to match the block and Rashi scripts found inside
+the Vilna edition of the Talmud Bavli."
+HOMEPAGE="http://mekorot.sourceforge.net/"
+SRC_URI="mirror://sourceforge/mekorot/Mekorot-Fonts-${VERSION}.tar.gz"
+SRC_DIR="Mekorot-Fonts"
+
+ARCH=noarch
+
+src_compile() { :; }
+
+src_install() {
+	cd ${S}
+	fontinto ${NAME%-fonts}
+	dofont */*.ttf
+	dodoc Rashi/lppl.txt Vilna/GPL
+}
